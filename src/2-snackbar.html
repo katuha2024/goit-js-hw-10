@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>snackbar</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <a href="./index.html" class="link-back">Повернуться на головну сторінку тяцні тут...</a>
+  <h1 class="text-title">Привіт друже рада бачити тебе у своему снекбарі...</h1>
+  <form class="form">
+  <label class="form-label">
+    Delay (ms)
+    <input type="number" name="delay" required />
+  </label>
+
+  <fieldset class="form-fieldset">
+    <legend>State</legend>
+    <label class="form-label">
+      <input type="radio" name="state" value="fulfilled" required />
+      Fulfilled
+    </label>
+    <label class="label-radio">
+      <input class="check-state" type="radio" name="state" value="rejected" required />
+      Rejected
+    </label>
+  </fieldset>
+
+  <button class="button" type="submit">Create notification</button>
+</form>
+</div>
+<script src="./js/2-snackbar.js"></script>
+</body>
+</html>
