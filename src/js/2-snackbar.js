@@ -3,6 +3,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 import iconSvgError from '../img/error.svg';
 import iconSvgOk from '../img/ok.svg';
 import iconSvgWarning from '../img/warning.svg';
+import iconSvgHay from '../img/hay.svg';
 
 const promiseForm = document.querySelector('.form');
 promiseForm.setAttribute('novalidate', '');
@@ -15,6 +16,7 @@ const helloMessageArg = {
   backgroundColor: '#09f',
   progressBarColor: '#0071bd',
   position: 'topRight',
+  iconUrl: iconSvgHay,
   onOpened: function () {
     const progressBarGreen = document.querySelector('.iziToast-progressbar');
     progressBarGreen.setAttribute('style', 'border-color: #b8e3ff;');
