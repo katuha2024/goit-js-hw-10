@@ -5,7 +5,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 let userSelectedDate = null;
-let timerInterval = null; // змінна для збереження інтервалу
+let timerInterval = null; 
 
 const startButton = document.querySelector('.button-start');
 const calendarField = document.getElementById('datetime-picker');

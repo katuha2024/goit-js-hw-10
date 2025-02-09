@@ -1,10 +1,8 @@
-import iziToast from 'izitoast';
+import iziToast from 'izitoast/dist/js/iziToast.min.js';
+import 'izitoast/dist/css/iziToast.min.css';
 import iconSvgError from '../img/error.svg';
 import iconSvgOk from '../img/ok.svg';
 import iconSvgWarning from '../img/warning.svg';
-import iconSvgBell from '../img/bell.svg';
-
-
 
 const promiseForm = document.querySelector('.form');
 promiseForm.setAttribute('novalidate', '');
@@ -17,7 +15,6 @@ const helloMessageArg = {
   backgroundColor: '#09f',
   progressBarColor: '#0071bd',
   position: 'topRight',
-  iconUrl: iconSvgBell,
   onOpened: function () {
     const progressBarGreen = document.querySelector('.iziToast-progressbar');
     progressBarGreen.setAttribute('style', 'border-color: #b8e3ff;');
@@ -104,8 +101,6 @@ const promiseRejectedMessage = {
   iconUrl: iconSvgError,
 };
 
-
-
 iziToast.show(helloMessageArg);
 
 promiseForm.addEventListener('submit', createPromise);
@@ -116,7 +111,10 @@ function createPromise(event) {
   const getStateInput = document.querySelector('input[name="state"]:checked');
   if (delayInput.value === '') {
     console.log('Не спіши, введи тривалість затримки!');
-    iziToast.show(importantDataMessageArgs);
+    iziToast.show({
+      ...importantDataMessageArgs,
+      message: 'You forgot to enter important data'
+    });
     event.currentTarget.reset();
     return;
   }
@@ -125,28 +123,41 @@ function createPromise(event) {
     console.log(
       "Від'ємне число? Ти не промах. Але і я також! Спробуй ще! Виклик прийняв!"
     );
-    iziToast.show(negativeValueDelayMessage);
+    iziToast.show({
+      ...negativeValueDelayMessage,
+      message: 'Передбачено! Введи коректне число!'
+    });
     event.currentTarget.reset();
     return;
   }
   if (delayInput.value === '0') {
     console.log('Нуль? Так не терпиться? Введи хоча б 1!');
-    iziToast.show(zeroValueDelayMessage);
+    iziToast.show({
+      ...zeroValueDelayMessage,
+      message: 'Передбачено! Введи коректне число!'
+    });
     event.currentTarget.reset();
     return;
   }
 
   if (!/^\d+$/.test(delayInput.value)) {
     console.log('І це все, що ти можеш? :))');
-    iziToast.show(fractionValueDelayMessage);
+    iziToast.show({
+      ...fractionValueDelayMessage,
+      message: 'Передбачено! Введи коректне число!'
+    });
     event.currentTarget.reset();
     return;
   }
   if (!getStateInput) {
     console.log('Нічого не буде! Треба вибрати тип промісу!');
-    iziToast.show(promiseTypeUndefinedMessage);
+    iziToast.show({
+      ...promiseTypeUndefinedMessage,
+      message: 'You forgot to enter important data'
+    });
     return;
   }
+
   const promiseDelay = Number(delayInput.value);
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -161,13 +172,17 @@ function createPromise(event) {
   promise
     .then(stateResult => {
       console.log(stateResult);
-      promiseFillfilledMessage.message = stateResult;
-      iziToast.show(promiseFillfilledMessage);
+      iziToast.show({
+        ...promiseFillfilledMessage,
+        message: stateResult
+      });
     })
     .catch(stateResult => {
       console.log(stateResult);
-      promiseRejectedMessage.message = stateResult;
-      iziToast.show(promiseRejectedMessage);
+      iziToast.show({
+        ...promiseRejectedMessage,
+        message: stateResult
+      });
     });
 
   event.currentTarget.reset();

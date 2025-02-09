@@ -5,6 +5,9 @@
   |============================
 */
 /* Common styles */
+@import url('flatpickr/dist/flatpickr.min.css');
+@import url('izitoast/dist/css/iziToast.min.css');
+
 @import url('./reset.css');
 @import url('./base.css');
 @import url('./container.css');
@@ -14,3 +17,39 @@
 @import url('./2-snackbar.css');
 @import url('./back-link.css');
 
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+.my-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-size: 36px;
+}
+.disckription{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+}
+.container-img{
+  display: flex;
+  gap: 250px;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto 0;
+  width: 700px;
+  height: 500px;
+  background-image: url('../img/depositphotos_195012174-stock-photo-3d-illustration-of-blue-and.jpg');
+  background-size: 700px 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.container-img a{
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+}

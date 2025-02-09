@@ -1,4 +1,20 @@
 .text-title {
+   font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin: 8px;
+
+}
+.link-back{
+   display: inline-block;
+   align-items: self-start;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 20px;
+  transition: background-color 500ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.link-back:hover{
+  background-color: #ffa500;
 }
 .form {
 display: flex;
